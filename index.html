@@ -95,6 +95,14 @@
 <script>
   $(function(){
     var $content = $(".layover");
+    var randomColor = function(e){
+      $(e.target).css({color: 'rgb('+ ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) +')'})
+    };
+    var randomBgColor = function(e){
+      $(e.target).parent().css({backgroundColor: 'rgb('+ ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) +')'})
+    };
+    $content.find('h3').hover(randomColor, randomColor);
+    $content.find('li').hover(randomBgColor, randomBgColor);
     // DO STUFF!!!!
   })
 </script>
