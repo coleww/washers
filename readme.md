@@ -22,13 +22,6 @@ but there are no other local dependencies besides having a web browser
 
 [Resume](http://coleww.github.io/resume/)
 
-### cool
-
-    fork this repo and rename it and stuff
-    git clone yr_forked_copy
-    gco -b gh-pages
-    # edit the index.html/readme.md to fill in yr deets or w/e
-    push it up
 
 ### scaffold new washers with unix!
 
@@ -38,7 +31,18 @@ but there are no other local dependencies besides having a web browser
 
 if you think this sounds like fun open an issue or make a pull request and so on
 
+
+
 ### TODO
+
+    figure out git flow?
+        KEEP just template, fake index, and readme on master.
+        each washer-er forks the repo,
+        git clones master,
+        checks out a clean gh-pages based on master,
+        and then pushes with force to their fork,
+        thus wiping their copy of my gh-pages
+        this sounds like either a bash script or i am doing this entirely wrong
 
     scripts/templates for quick scaffolding?
 
