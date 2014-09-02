@@ -29,9 +29,7 @@ but there are no other local dependencies besides having a web browser
 
 ### contribute!
 
-if you think this sounds like fun open an issue or make a pull request and so on
-
-
+if you think this sounds like fun, fork it or open an issue or make a pull request and so on
 
 ### TODO
 
@@ -48,3 +46,5 @@ if you think this sounds like fun open an issue or make a pull request and so on
     scripts/templates for quick scaffolding?
 
     make more examples i guess so that it will be possible to make scripts and/or templates
+
+fork a [code of conduct](http://citizencodeofconduct.org/), because i worry about the kinds of things that can be iframed in.
