@@ -44,6 +44,7 @@ if you think this sounds like fun open an issue or make a pull request and so on
         thus wiping their copy of my gh-pages
         this sounds like either a bash script or i am doing this entirely wrong
 
+
     scripts/templates for quick scaffolding?
 
     make more examples i guess so that it will be possible to make scripts and/or templates
