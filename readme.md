@@ -43,3 +43,5 @@ if you think this sounds like fun open an issue or make a pull request and so on
     scripts/templates for quick scaffolding?
 
     make more examples i guess so that it will be possible to make scripts and/or templates
+
+    guide to make a washers thing via github online app, for non-porgammers
