@@ -1,1 +1,354 @@
-snacks.html
+<head>
+  <title>
+    WASHER TEMPLATE
+  </title>
+
+  <!-- OG META TAGS GO HERE -->
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+
+    .tile {
+      height: 10%;
+      width: 10%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box;
+      display: inline-block;
+    }
+    .snake {
+      background-color: green;
+
+    }
+
+    .empty {
+      background-color: rgba(255,255,255,0.75);
+    }
+
+    .wrapper {
+      border: black thick solid;
+      height: 100%;
+      width: 100%;
+      /*background-color: rgba(255,255,255,0.25);*/
+    }
+
+    .apple {
+      background-color: red;
+      border-radius: 10px;
+    }
+
+
+    body {
+      background-color: black;
+    }
+
+    .headline {
+      font-size: 15px;
+    }
+
+    .super-center {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 75%;
+      height: 75%;
+    }
+
+    .layover {
+      margin-left: auto;
+      margin-right: auto;
+      overflow: scroll;
+      overflow-x: auto;
+      overflow-y: auto;
+      padding: 10%;
+      padding-top: 5%;
+      padding-bottom: 5%;
+      text-align: justify;
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+      font-family: 'SOME GOOGLE FONT OR WHATEVER';
+      font-size: 19px;
+      letter-spacing: 5px;
+
+      line-height: 5px;
+      /* FIX DIS NOT RESPONSIV/\ /\ */
+    }
+
+  </style>
+  <link href='http://fonts.googleapis.com/css?family=UPORBABLYWANTAGOOGLEFONTORSOMETHING' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+
+
+  <br />
+  <center><strong><a href="http://YR_GITHUB_NAME.github.io/washers">THIS IS <a href="https://github.com/YR_GITHUB_NAME/washers" target="_blank">AN EXAMPLE</a></strong></center>
+  <iframe class="super-center" src="//player.vimeo.com/video/NUMBERSHEREORWHATEVER?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1&amp;loop=1" width="500" height="334" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <div class="super-center layover">
+  <div class="center">
+    <button id="pause_button">New game!</button>
+  </div>
+  <h2 class="center">Score: <span id="score">0</span></h2>
+  <div class="wrapper center">
+  </div>
+</div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script>
+    $(function(){
+        var root = this;
+        var SnakeGame = root.SnakeGame = root.SnakeGame || {};
+
+        var Snake = SnakeGame.Snake = function () {
+          this.dir = "N";
+          this.segments = [new Coord([5,5])];
+          this.growing = 2;
+        };
+
+        Snake.prototype.move = function () {
+          var newHead = this.segments[0].plus(directionVector(this.dir));
+          this.segments.unshift(newHead);
+          if (this.growing > 0){
+            this.growing --;
+          } else {
+            this.segments.pop();
+          }
+        };
+
+
+
+        Snake.prototype.turn = function(newDir) {
+          if (Math.abs(directionVector(this.dir)[0])
+                  !== Math.abs(directionVector(newDir)[0]) ||
+                    this.segments.length === 1) {
+            this.dir = newDir;
+          }
+        };
+
+        Snake.prototype.containsPoint = function(point){
+          return _.any(this.segments, function(segment){
+            return segment.x === point[0] && segment.y === point[1];
+          })
+        }
+
+        var directionVector = function(direction) {
+          switch (direction) {
+            case "N":
+              return [0,-1];
+            case "E":
+              return [1,0];
+            case "S":
+              return [0,1];
+            case "W":
+              return [-1,0];
+          }
+        }
+
+        var Coord = SnakeGame.Coord = function(arr) {
+          this.x = arr[0]
+          this.y = arr[1]
+        }
+
+        Coord.prototype.plus = function(other) {
+          return new Coord([this.x+other[0], this.y+other[1]])
+        }
+
+        var Board = SnakeGame.Board = function() {
+          this.snake = new Snake();
+          this.width = 10;
+          this.height = 10;
+          this.apple = new Apple(this.randomApplePosition());
+        }
+
+        Board.prototype.render = function(){
+          var outString = "";
+          for(var y = 0; y < this.height; y++){
+            for(var x = 0; x < this.width; x++){
+              if (this.snake.containsPoint([x, y])){
+                outString += "S";
+              } else {
+                outString += ".";
+              }
+            }
+            outString += "\n"
+          }
+          return outString;
+        }
+
+        Board.prototype.manageApple = function() {
+          if (this.snakeHasApple()) {
+            this.snake.growing += 45/this.height;
+            this.apple = new Apple(this.randomApplePosition());
+            return true;
+          }
+          return false;
+        }
+
+        Board.prototype.snakeHasApple = function () {
+          var head = this.snake.segments[0];
+          return head.x === this.apple.x && head.y === this.apple.y;
+        }
+
+        Board.prototype.randomApplePosition = function () {
+          var x = Math.floor(Math.random()*this.width)
+          var y = Math.floor(Math.random()*this.height)
+
+          if (this.snake.containsPoint([x,y])) {
+            return this.randomApplePosition();
+          }
+          return [x,y]
+        };
+
+        Board.prototype.checkLost = function () {
+          var head = this.snake.segments[0];
+          if (head.x < 0 || head.x >= this.width ){
+            return true;
+          }
+          if (head.y < 0 || head.y >= this.height){
+            return true;
+          }
+          for(var i = 1; i < this.snake.segments.length; i++){
+            var segment = this.snake.segments[i];
+            if (head.x === segment.x && head.y === segment.y){
+              return true;
+            }
+          }
+          return false;
+        }
+
+        var Apple = SnakeGame.Apple = function (pos) {
+          this.x = pos[0];
+          this.y = pos[1];
+        };
+
+        Apple.prototype.isAt = function(pos){
+          return this.x === pos[0] && this.y === pos[1];
+        }
+
+
+
+        var View = SnakeGame.View = function(element){
+          this.$el = $(element);
+          $("#pause_button").on('click', this.start.bind(this));
+          this.board = new SnakeGame.Board();
+        }
+
+        View.prototype.start = function(){
+
+          $("html").keydown(this.handleKeyEvent.bind(this));
+
+          $("#pause_button").text("Pause game")
+          $("#pause_button").off('click')
+          $("#pause_button").on('click', this.pauseGame.bind(this));
+
+          this.step();
+          this.timer = setInterval(this.step.bind(this), 3000/this.board.height);
+          $(".wrapper").css("height",this.board.height*30);
+          $(".container").css("height",this.board.height*30+200);
+        }
+
+        View.prototype.restart = function() {
+          $("h1").text("NOKIA FUN TIMES");
+          this.board = new SnakeGame.Board();
+          this.start();
+        }
+
+        View.prototype.pauseGame = function () {
+          clearInterval(this.timer);
+          $("#pause_button").text("Unpause game")
+          $("#pause_button").off('click')
+          $("#pause_button").on('click', this.unpauseGame.bind(this));
+        };
+
+        View.prototype.unpauseGame = function () {
+          this.step();
+          this.timer = setInterval(this.step.bind(this), 3000/this.board.height);
+          $("#pause_button").text("Pause game")
+          $("#pause_button").off('click')
+          $("#pause_button").on('click', this.pauseGame.bind(this));
+        };
+
+
+        View.prototype.handleKeyEvent = function(event){
+          switch (event.keyCode) {
+          case 37: // left
+            this.board.snake.turn("W")
+            break
+          case 38: // up
+            this.board.snake.turn("N")
+            break
+          case 39: //right
+            this.board.snake.turn("E")
+            break
+          case 40: //down
+            this.board.snake.turn("S")
+            break
+          }
+        }
+
+        View.prototype.step = function() {
+          this.board.snake.move();
+          if (this.board.manageApple()) {
+            this.increaseScore();
+          };
+
+
+            this.render();
+
+        }
+
+        View.prototype.increaseScore = function() {
+          var score = $('#score').text();
+          score = parseInt(score) + 10;
+          // this.board.height++;
+          // this.board.width++;
+          $('#score').text(score);
+          // clearInterval(this.timer)
+          // this.timer = setInterval(this.step.bind(this), 3000/this.board.height);
+        }
+
+        View.prototype.lose = function() {
+          // clearInterval(this.timer);
+          $("h1").text("YOU LOSE BRO");
+          $("#pause_button").text("Restart game")
+          // $("#pause_button").off('click')
+          // $("#pause_button").on('click', this.restart.bind(this));
+          $('#score').text(0);
+        }
+
+        View.prototype.render = function () {
+          this.$el.empty()
+
+          for(var y = 0; y < this.board.height; y++){
+            for(var x = 0; x < this.board.width; x++){
+              if (this.board.snake.containsPoint([x, y])){
+                this.$el.append('<div class="snake tile"></div>');
+              } else if (this.board.apple.isAt([x,y])){
+                this.$el.append('<div class="apple tile"></div>');
+              } else {
+                this.$el.append('<div class="empty tile"></div>');
+              }
+            }
+          }
+
+        };
+
+
+      var v = new SnakeGame.View($(".wrapper")[0])
+      v.render();
+    })
+  </script>
+
+</body>
