@@ -1,0 +1,153 @@
+<head>
+  <title>
+    WASHER TEMPLATE
+  </title>
+
+  <!-- OG META TAGS GO HERE -->
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      background-color: black;
+    }
+
+    .headline {
+      font-size: 15px;
+    }
+
+    .super-center {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 75%;
+      height: 75%;
+    }
+
+    .layover {
+      margin-left: auto;
+      margin-right: auto;
+      overflow: scroll;
+      overflow-x: auto;
+      overflow-y: auto;
+      padding: 10%;
+      padding-top: 5%;
+      padding-bottom: 5%;
+      text-align: justify;
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+      font-family: 'SOME GOOGLE FONT OR WHATEVER';
+      font-size: 19px;
+      letter-spacing: 5px;
+
+      line-height: 5px;
+      /* FIX DIS NOT RESPONSIV/\ /\ */
+    }
+
+  </style>
+  <link href='http://fonts.googleapis.com/css?family=UPORBABLYWANTAGOOGLEFONTORSOMETHING' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+
+
+  <br />
+  <center><strong><a href="http://YR_GITHUB_NAME.github.io/washers">THIS IS <a href="https://github.com/YR_GITHUB_NAME/washers" target="_blank">AN EXAMPLE</a></strong></center>
+  <iframe class="super-center" src="//player.vimeo.com/video/NUMBERSHEREORWHATEVER?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1&amp;loop=1" width="500" height="334" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <div class="super-center layover">
+    CONTENT STUFF!!!!!!
+  </div>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script>
+    $(function(){
+      var $content = $(".layover");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      var v = document.querySelector("#videoElement");
+
+      navigator.getUserMedia = navigator.getUserMedia ||
+                               navigator.webkitGetUserMedia ||
+                               navigator.mozGetUserMedia ||
+                               navigator.msGetUserMedia ||
+                               navigator.oGetUserMedia;
+
+      if (navigator.getUserMedia) {
+        navigator.getUserMedia({video: true}, function(stream) {
+          v.src = window.URL.createObjectURL(stream);
+        },
+        function(errors) {
+          console.log(errors, "wat");
+        });
+      }
+
+      $(function(){
+        var hiddenCanvas = document.getElementById("hiddencanvas");
+        var hiddenContext = hiddenCanvas.getContext("2d");
+        var w = hiddenCanvas.width;
+        var h = hiddenCanvas.height;
+
+        $("#picturebtn").on("click", function(){
+          hiddenContext.drawImage(v, 0,0, w, h);
+          var pixeldata = hiddenContext.getImageData(0, 0, w, h).data;
+
+          $("#pixelContainer").empty();
+
+          for(var i = 0; i < pixeldata.length; i+=20){
+            var r = pixeldata[i];
+            var g = pixeldata[i + 1];
+            var b = pixeldata[i + 2];
+            var color = "rgb(" + r + "," + g + "," + b + ")";
+            var pixel = $("<div class='pixel'></div>");
+            pixel.addClass("pixel").css("background-color", color);
+            $("#pixelContainer").append(pixel);
+          }
+        });
+      });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
+  </script>
+
+</body>
