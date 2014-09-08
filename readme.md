@@ -34,6 +34,10 @@ if you think this sounds like fun, fork it or open an issue or make a pull reque
 ### TODO
 
     figure out git flow?
+        git pull upstream origin master bro or something?
+        gco master TEMPLATE.html
+        gc 'update template from origin master'
+
         KEEP just template, fake index, and readme on master.
         each washer-er forks the repo,
         git clones master,
