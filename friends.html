@@ -46,9 +46,17 @@
       padding-top: 5%;
       padding-bottom: 5%;
       text-align: justify;
+      color: white;
     }
 
-    pre {
+    .prev {
+      color: white;
+      font-weight: bold;
+      /*font-family: 'SOME GOOGLE FONT OR WHATEVER';*/
+      font-size: 25px;
+      display: inline;
+    }
+    p {
       color: white;
       font-weight: bold;
       /*font-family: 'SOME GOOGLE FONT OR WHATEVER';*/
@@ -62,8 +70,10 @@
   <br />
   <center>
     <strong>
-      <a href="http://coleww.github.io/washers">THIS IS </a>
-      <a href="https://github.com/coleww/washers" target="_blank">AN EXAMPLE</a>
+      <p>
+        <a href="http://coleww.github.io/washers">BFFS</a> 4
+        <a href="https://github.com/coleww/washers" target="_blank">EVER</a>
+      </p>
     </strong>
   </center>
 
@@ -178,7 +188,7 @@
       var $content = $(".layover");
       var smiles = [silly, grinny, classy, witty, circy, sunny]
       window.setInterval(function(){
-        $content.html("<pre>" + smiles[~~(Math.random() * smiles.length)] + "</pre>")
+        $content.html("<div class='layover'> <pre>" + smiles[~~(Math.random() * smiles.length)] + "</pre></div>")
       }, 1000)
     })
   </script>
