@@ -18,9 +18,9 @@ but there are no other local dependencies besides having a web browser
 
 [Ripps](http://coleww.github.io/washers/ripps.html)
 
-[A Milli Plateauxz](http://coleww.github.io/a_milli_plateaus/)
+[A Milli Plateauxz](http://coleww.github.io/washers/plateaus.html)
 
-[Resume](http://coleww.github.io/resume/)
+[Resume](http://coleww.github.io/washers/resume.html)
 
 
 ### scaffold new washers with unix!
