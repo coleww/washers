@@ -56,7 +56,9 @@
       /*font-family: 'SOME GOOGLE FONT OR WHATEVER';*/
       font-size: 19px;
     }
-
+::-webkit-scrollbar {
+    display: none;
+}
   </style>
   <!-- <link href='http://fonts.googleapis.com/css?family=UPORBABLYWANTAGOOGLEFONTORSOMETHING' rel='stylesheet' type='text/css'> -->
 </head>
@@ -72,7 +74,7 @@
 
   <iframe class="super-center" src="//www.youtube.com/embed/MgkPomvoCDM?autoplay=1&controls=0&loop=1&playlist=MgkPomvoCDM " frameborder="0"></iframe>
 
-  <div class="super-center layover">
+  <div class="super-center layover" id="scrollyBoy">
     <p class='text'></p>
   </div>
 
@@ -86,10 +88,20 @@
     $(function(){
       var $content = $(".text");
       setInterval(function(){
-        symbolo = (Math.random() < 0.5) ? "/" : "\\"
+        symbolo = ''
+        for(var i =0;i < 100;i++){
+          symbolo += (Math.random() < 0.5) ? "/" : "\\"
+        }
         $content.append(symbolo)
+        var loc = $scrolly.scrollTop()
+        console.log(loc)
+        $scrolly.scrollTop(loc +  ~~(Math.random() * 100) - 40)
       }, 1)
+      var $scrolly = $("#scrollyBoy");
 
+      window.setInterval(function(){
+
+      }, 250)
 
 
     })
