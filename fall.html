@@ -42,12 +42,14 @@
       overflow: scroll;
       overflow-x: auto;
       overflow-y: auto;
-      padding: 10%;
-      padding-top: 5%;
-      padding-bottom: 5%;
+      padding: 1%;
+      padding-top: 0;
+      padding-bottom: 0;
       text-align: justify;
     }
-
+    .text {
+      word-wrap: break-word;
+    }
     p {
       color: white;
       font-weight: bold;
@@ -71,7 +73,7 @@
   <iframe class="super-center" src="//www.youtube.com/embed/MgkPomvoCDM?autoplay=1&controls=0&loop=1&playlist=MgkPomvoCDM " frameborder="0"></iframe>
 
   <div class="super-center layover">
-    <p>NATURE STUFF AND THINGS GOES HERE!!!!!!!</p>
+    <p class='text'></p>
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -82,9 +84,14 @@
 
   <script>
     $(function(){
-      var $content = $(".layover");
-      // DO STUFF!!!!
-      // PARTICLE SYSTEM
+      var $content = $(".text");
+      setInterval(function(){
+        symbolo = (Math.random() < 0.5) ? "/" : "\\"
+        $content.append(symbolo)
+      }, 1)
+
+
+
     })
   </script>
 
