@@ -1,6 +1,6 @@
 <head>
   <title>
-    COLEDUBZ'S WASHERS
+    WASHERS
   </title>
 
 
@@ -56,9 +56,13 @@
 
     .indexlinx {
       background-color: pink;
-      width: 33%;
+      width: 66%;
       padding: 3%;
 
+    }
+
+    a {
+      font-size: 25px;
     }
 
   </style>
@@ -70,10 +74,14 @@
 <iframe class='super-center' width="854" height="510" src="//www.youtube.com/embed/6kcnkXJvExA?autoplay=1&controls=0&loop=1&playlist=6kcnkXJvExA#t=707" frameborder="0" allowfullscreen></iframe>
 <div class="super-center layover">
 
-                <h3>washers are like watchers as in </h3><h3>like they kind of spin around in loops </h3><h3>and "cleanse" you? I guess?</h3>
+                <h3>washers are like watchers as in </h3><h3>like they kind of spin around in loops </h3><h3>and the kind of like "cleanse" you? I guess?</h3>
                 <ul class='indexlinx'>
 
+
                   <li> SOME EXAMPLES FOLLOW BELOW, THOUGH THIS IS ALSO A WASHER, SO THERe IS NOT RLY A NEED FOR MORE EXAMPLES. BUT OK</li>
+
+                  <li><a href='./noface.html'>No Face</a> Marquee tags and explozions!</li>
+
                   <li><a href='./boxy.html'>Box Factory</a> engage with art history via CSS3.0!</li>
 
                   <li><a href='./ripps.html'>Ripps</a> embed a site!</li>
@@ -84,17 +92,9 @@
 
                   <li><a href="./resume.html">Resume</a> display lyrics on top of yr song!</li>
 
-                  <li><a href="https://github.com/coleww/washers/blob/gh-pages/TEMPLATE.html">HERE is a blank washer template </a>v0.0.1 ALPHA RELEASE!! V. EXPERIMENTAL!!</li>
-
-                  <li> if u make a washer, you can add it to this list by also making an open-source pull request against this <a class="headline" href="https://github.com/coleww/washers" target="_blank">git repo</a></li>
-
-                  <li> or start a rival fork or do whatever you want i don't care </li>
+                  <li><a href="https://github.com/coleww/washers/blob/gh-pages/TEMPLATE.html">HERE is a blank washer template </a>v0.1.72 ALPHA RELEASE!! V. EXPERIMENTAL!!</li>
                 </ul>
 
-
-                <h3> they might also like run a lil JS </h3>
-                <h3> or show off a CSS3 hax </h3>
-                <h3> generally they r a place to play and be deeply unserious </h3>
 </div>
 
 
@@ -109,7 +109,9 @@
       $(e.target).parent().css({backgroundColor: 'rgb('+ ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) + ',' + ~~(Math.random() * 255) +')'})
     };
     $content.find('h3').hover(randomColor, randomColor);
+    $content.find('a').hover(randomColor, randomColor);
     $content.find('li').hover(randomBgColor, randomBgColor);
+    $content.find('li').hover(randomColor, randomColor);
     // DO STUFF!!!!
   })
 </script>
