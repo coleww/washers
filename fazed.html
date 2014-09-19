@@ -46,7 +46,7 @@
     $(function(){
       var $content = $("#container");
       var dirs = ['up', 'down', 'left', 'right']
-      for(var gee = 0, arr = 255, speed = 1, font = 300; gee < 205; gee += 3, arr -= 3, speed += 1, font -= 10){
+      for(var gee = 0, arr = 255, speed = 1, font = 300; gee < 205; gee += 7, arr -= 7, speed += 1, font -= 1.5){
         var tag = '<marquee class="super-center" behavior="scroll" direction="' + 'down' + '" scrollamount="'+speed+'"><span style="color: rgb(125, '+gee+', 150); font-size: '+font+'px;">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</span></marquee>'
         $content.append(tag)
         var tagToo = '<marquee class="super-center" behavior="scroll" direction="' + 'up' + '" scrollamount="'+speed+'"><span style="color: rgb('+arr+', 150, 125); font-size: '+font+'px;">////////////////</span></marquee>'
