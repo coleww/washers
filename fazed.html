@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+    WASHER TEMPLATE
+  </title>
+
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      /*background-color: /*black*/;*/
+      overflow: hidden;
+      text-align: center;
+    }
+
+
+    .super-center {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="container" class='super-center'></div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script>
+    $(function(){
+      var $content = $("#container");
+      var dirs = ['up', 'down', 'left', 'right']
+      for(var gee = 0, arr = 255, speed = 1, font = 300; gee < 205; gee += 3, arr -= 3, speed += 1, font -= 10){
+        var tag = '<marquee class="super-center" behavior="scroll" direction="' + 'down' + '" scrollamount="'+speed+'"><span style="color: rgb(125, '+gee+', 150); font-size: '+font+'px;">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</span></marquee>'
+        $content.append(tag)
+        var tagToo = '<marquee class="super-center" behavior="scroll" direction="' + 'up' + '" scrollamount="'+speed+'"><span style="color: rgb('+arr+', 150, 125); font-size: '+font+'px;">////////////////</span></marquee>'
+        $content.append(tagToo)
+      }
+    })
+  </script>
+
+</body>
+</html>
