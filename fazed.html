@@ -38,6 +38,10 @@
   </style>
 </head>
 <body>
+  <iframe src="//www.youtube.com/embed/tWExX_w_7xQ?autoplay=1&controls=0&loop=1&playlist=tWExX_w_7xQ" class="super-center layover">
+
+  </iframe>
+
   <div id="container" class='super-center'></div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -47,9 +51,9 @@
       var $content = $("#container");
       var dirs = ['up', 'down', 'left', 'right']
       for(var gee = 0, arr = 255, speed = 1, font = 300; gee < 205; gee += 7, arr -= 7, speed += 1, font -= 1.5){
-        var tag = '<marquee class="super-center" behavior="scroll" direction="' + 'down' + '" scrollamount="'+speed+'"><span style="color: rgb(125, '+gee+', 150); font-size: '+font+'px;">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</span></marquee>'
+        var tag = '<marquee class="super-center" behavior="scroll" direction="' + 'down' + '" scrollamount="'+speed+'"><span style="color: rgba(125, '+gee+', 150,0.85); font-size: '+font+'px;">\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\</span></marquee>'
         $content.append(tag)
-        var tagToo = '<marquee class="super-center" behavior="scroll" direction="' + 'up' + '" scrollamount="'+speed+'"><span style="color: rgb('+arr+', 150, 125); font-size: '+font+'px;">////////////////</span></marquee>'
+        var tagToo = '<marquee class="super-center" behavior="scroll" direction="' + 'up' + '" scrollamount="'+speed+'"><span style="color: rgba('+arr+', 150, 125,0.85); font-size: '+font+'px;">////////////////</span></marquee>'
         $content.append(tagToo)
       }
     })
