@@ -73,11 +73,14 @@
 <iframe class='super-center' width="854" height="510" src="//www.youtube.com/embed/6kcnkXJvExA?autoplay=1&controls=0&loop=1&playlist=6kcnkXJvExA#t=707" frameborder="0" allowfullscreen></iframe>
 <div class="super-center layover">
 
-                <h3>washers are like watchers as in </h3><h3>like they kind of spin around in loops </h3><h3>and i guess they sort of like "cleanse" you? </h3>
+                <h3>washers are like watchers as in</h3>
+                <h3>like they kind of spin around in loops</h3>
+                <h3>and i guess they sort of like "cleanse" you?</h3>
                 <ul class='indexlinx'>
 
+                  <li> THESE ARE SOME EXAMPLES, THOUGH THIS IS ALSO A WASHER, SO THERe IS NOT RLY A NEED FOR MORE EXPLANATION. BUT OK, I WILL PLAY YOUR GAME</li>
 
-                  <li> SOME EXAMPLES FOLLOW BELOW, THOUGH THIS IS ALSO A WASHER, SO THERe IS NOT RLY A NEED FOR MORE EXAMPLES. BUT OK</li>
+                  <li><a href='./noface.html'>No Face</a> Marquee tags and explozions!</li>
 
                   <li><a href='./noface.html'>No Face</a> Marquee tags and explozions!</li>
 
@@ -91,7 +94,7 @@
 
                   <li><a href="./resume.html">Resume</a> display lyrics on top of yr song!</li>
 
-                  <li><a href="https://github.com/coleww/washers/blob/gh-pages/TEMPLATE.html">HERE is a blank washer template </a>v0.1.72 ALPHA RELEASE!! V. EXPERIMENTAL!!</li>
+                  <li><a href="https://github.com/coleww/washers/blob/gh-pages/TEMPLATE.html">HERE is a blank washer template v0.1.72 ALPHA RELEASE!! V. EXPERIMENTAL!!</a></li>
                 </ul>
 
 </div>
@@ -111,6 +114,11 @@
     $content.find('a').hover(randomColor, randomColor);
     $content.find('li').hover(randomBgColor, randomBgColor);
     $content.find('li').hover(randomColor, randomColor);
-    // DO STUFF!!!!
+
+    var ul = document.querySelector('ul');
+    for (var i = ul.children.length; i >= 0; i--) {
+        ul.appendChild(ul.children[Math.random() * i | 0]);
+    }
   })
+
 </script>

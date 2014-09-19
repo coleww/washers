@@ -57,8 +57,8 @@
       left: 0;
       bottom: 0;
       right: 0;
-      width: 75%;
-      height: 75%;
+      width: 100%;
+      height: 100%;
     }
 
     .layover {
@@ -255,8 +255,8 @@
 
           this.step();
           this.timer = setInterval(this.step.bind(this), 3000/this.board.height);
-          $(".wrapper").css("height",this.board.height*30);
-          $(".container").css("height",this.board.height*30+200);
+          // $(".wrapper").css("height",this.board.height*30);
+          // $(".container").css("height",this.board.height*30+200);
         }
 
         View.prototype.restart = function() {
