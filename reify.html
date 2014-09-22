@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="infinite box shadow art thing">
+  <meta name="author" content="cole willsea">
+
+  <title>
+    IN THE SHADOWS!
+  </title>
+
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+    #thing {
+      width: 50%;
+      height: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top:5%;
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+    body {
+      background-color: white;
+    }
+
+    .headline {
+      font-size: 15px;
+    }
+
+    .super-center {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .layover {
+      margin-left: auto;
+      margin-right: auto;
+      overflow: scroll;
+      overflow-x: auto;
+      overflow-y: auto;
+      padding: 10%;
+      padding-top: 5%;
+      padding-bottom: 5%;
+      text-align: justify;
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+      /*font-family: 'SOME GOOGLE FONT OR WHATEVER';*/
+      font-size: 19px;
+    }
+
+  </style>
+  <!-- <link href='http://fonts.googleapis.com/css?family=UPORBABLYWANTAGOOGLEFONTORSOMETHING' rel='stylesheet' type='text/css'> -->
+</head>
+<body>
+  <br />
+  <center>
+    <strong>
+      <a href="http://coleww.github.io/washers">THIS IS </a>
+      <a href="https://github.com/coleww/washers" target="_blank">AN EXAMPLE</a>
+    </strong>
+  </center>
+
+<!-- //www.youtube.com/embed/NUMBERSHEREORWHATEVER?autoplay=1&controls=0&loop=1&playlist=NUMBERSHEREORWHATEVER -->
+<!-- //player.vimeo.com/video/NUMBERSHEREORWHATEVER?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1&amp;loop=1 -->
+  <iframe class="super-center" src="" frameborder="0"></iframe>
+
+  <div class="super-center layover">
+    <div id="thing">&nbsp;</div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script>
+    $(function(){
+      var getShad = function(){
+        a = Math.random() < 0.5 ? '-' : ''
+        b = ~~(Math.random() * 1000)
+        c = Math.random() < 0.5 ? '-' : ''
+        d = ~~(Math.random() * 1000)
+        color = 'rgba('+~~(Math.random()*255)+','+~~(Math.random()*255)+','+~~(Math.random()*255)+','+0.25+')'
+        return a+b+'px '+c+d+'px '+color
+      }
+
+      var $content = $("#thing");
+      var style = getShad();
+
+      window.setInterval(function(){
+        $content.css({boxShadow: style})
+        style += (', ' +getShad());
+        $content.text('box-shadow: '+style+';');
+      }, 50)
+
+
+    })
+  </script>
+
+</body>
+</html>
