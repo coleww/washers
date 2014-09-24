@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="for when u need 2 b pumped up">
+  <meta name="author" content="cole willsea">
+
+  <title>
+    YOU RULE!
+  </title>
+
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+.hide {
+  display: none;
+}
+    body {
+      background-color: black;
+    }
+
+    .headline {
+      font-size: 15px;
+    }
+
+    .super-center {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .layover {
+      margin-left: auto;
+      margin-right: auto;
+      overflow: scroll;
+      overflow-x: auto;
+      overflow-y: auto;
+      padding: 10%;
+      padding-top: 3%;
+      padding-bottom: 5%;
+      text-align: justify;
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+      font-family: 'Arimo', sans-serif;
+      font-size: 75px;
+      text-shadow: 2px 2px black;
+    }
+
+  </style>
+  <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+
+
+    <video class='super-center' id='videoElement'></video>
+  <div class="super-center layover">
+    <center>
+    <p>SMILE!</p>
+  </center>
+  </div>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script>
+    $(function(){
+      var $content = $(".layover");
+      gotIt = false;
+
+
+
+
+      var v = document.querySelector("#videoElement");
+
+      navigator.getUserMedia = navigator.getUserMedia ||
+                               navigator.webkitGetUserMedia ||
+                               navigator.mozGetUserMedia ||
+                               navigator.msGetUserMedia ||
+                               navigator.oGetUserMedia;
+
+      if (navigator.getUserMedia) {
+        navigator.getUserMedia({video: true}, function(stream) {
+          gotIt = true;
+          v.src = window.URL.createObjectURL(stream);
+
+          $content.html("<center><p>you are</p><p class='firsty'>awesome at</p><p class='secondy'>stuff</p></center>")
+          var typeThings = ['amazing me with yr', 'overwhelming me with yr', 'a champion of', 'a shining example of', 'the best at', 'awesome at', 'a beacon of hope in a world without', 'possessed with a deep understanding of'];
+          var kindWords = ['kindness', 'everything', 'stuff', 'life', 'passion', 'sports', 'awesomeness', 'gratitude', 'integrity', 'creativity', 'laughter', 'joy'];
+
+          window.setInterval(function(){
+            $('.firsty').text(typeThings[~~(Math.random() * typeThings.length)]);
+          }, 5000)
+
+          window.setTimeout(function(){
+            window.setInterval(function(){
+              $('.secondy').text(kindWords[~~(Math.random() * kindWords.length)]);
+            }, 5000)
+          }, 2500)
+        },
+        function(errors) {
+          console.log(errors, "wat");
+        });
+      }
+
+
+
+
+
+    })
+  </script>
+
+</body>
+</html>
