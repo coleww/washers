@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FRIENDS 4 EVER">
+  <meta name="author" content="Cole Willsea">
+
+  <title>
+    U R MY FRIEND
+  </title>
+
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      background-color: black;
+    }
+  body{
+    font-size: 150px;
+    background-color: gray  ;
+    color: white;
+    font-weight: bold;
+    font-style: bold;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+
+  }
+
+  .talk {
+    font-size: 50px;
+  }
+    .headline {
+      font-size: 15px;
+    }
+
+    .super-center {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .layover {
+      margin-left: auto;
+      margin-right: auto;
+      overflow: scroll;
+      overflow-x: auto;
+      overflow-y: auto;
+      padding: 10%;
+      padding-top: 5%;
+      padding-bottom: 5%;
+      text-align: justify;
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+      /*font-family: 'SOME GOOGLE FONT OR WHATEVER';*/
+      font-size: 19px;
+    }
+
+  </style>
+  <!-- <link href='http://fonts.googleapis.com/css?family=UPORBABLYWANTAGOOGLEFONTORSOMETHING' rel='stylesheet' type='text/css'> -->
+</head>
+<body>
+  <br />
+
+
+<!--  -->
+<!-- //player.vimeo.com/video/NUMBERSHEREORWHATEVER?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1&amp;loop=1 -->
+  <iframe class="super-center" src="//www.youtube.com/embed/DhFy4qZ0ah8?autoplay=1&controls=0&loop=1&playlist=DhFy4qZ0ah8" frameborder="0"></iframe>
+
+  <div class="super-center layover">
+    <center>
+  <div class="bro">
+<div class="top">
+<span class="eye">O</span>&nbsp;<span class="nose">.</span>&nbsp;<span class="eye">O</span>
+</div>
+<div class="jaw">
+<span class="l-mouth">[</span><span class="lip">___</span><span class="r-mouth">]</span>
+</div>
+</div>
+  <span class="talk" style="background-color: white; color: black;padding:15px;">HELLO!</span>
+</center>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script>
+    $(function(){
+
+var blinks = ["o", "0", "^"];
+var noses = [",", ".", '-']
+
+
+var leftMouths = ["\\", "[", "(", "{", "<", "|", "!", "1"]
+var lips = ["----", "___", '....']
+var rightMouths = ["|", "!", "1"]
+// "/", "]", ")", "}", ">",
+
+
+var salutes = ['hello ', 'how are you doing ', 'what is up ', 'how are the things '];
+
+var addresses = ['buddy', 'friend', 'comrade'];
+
+window.setInterval(function(){
+  $('.talk').text(salutes[~~(Math.random() * salutes.length)] + addresses[~~(Math.random() * addresses.length)])
+
+}, 2500);
+
+
+
+window.setInterval(function(){
+
+
+
+
+  var roll = Math.random();
+  if (roll < 0.35){
+    // $($(".eye")[~~(Math.random() * 2)]).text(blinks[~~(Math.random() * blinks.length)]);
+    $(".eye").text(blinks[~~(Math.random() * blinks.length)]);
+  } else if (roll < 0.45){
+    $(".nose").text(noses[~~(Math.random() * noses.length)]);
+  }else if (roll < 0.75) {
+    $(".l-mouth").text(m = rightMouths[~~(Math.random() * leftMouths.length)]);
+  // } else if (roll < 0.75){
+    $(".r-mouth").text(m);
+  } else if (roll < 0.8){
+    $(".lip").text(lips[~~(Math.random() * lips.length)]);
+  }
+
+
+}, 333);
+    })
+  </script>
+
+</body>
+</html>
