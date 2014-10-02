@@ -114,13 +114,8 @@
 
           window.setInterval(function(){
             $('.firsty').text(typeThings[~~(Math.random() * typeThings.length)]);
+            $('.secondy').text(kindWords[~~(Math.random() * kindWords.length)]);
           }, 5000)
-
-          window.setTimeout(function(){
-            window.setInterval(function(){
-              $('.secondy').text(kindWords[~~(Math.random() * kindWords.length)]);
-            }, 5000)
-          }, 2500)
         },
         function(errors) {
           console.log(errors, "wat");
