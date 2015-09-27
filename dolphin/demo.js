@@ -16,7 +16,7 @@ var delay = new tuna.Delay({
     delayTime: 15,    //how many milliseconds should the wet signal be delayed?
     wetLevel: 0.75,    //0 to 1+
     dryLevel: 0.25,       //0 to 1+
-    cutoff: 1250,      //cutoff frequency of the built in lowpass-filter. 20 to 20050
+    cutoff: 12500,      //cutoff frequency of the built in lowpass-filter. 12 to 12050
     bypass: 0
 });
 
@@ -25,7 +25,7 @@ var delay2 = new tuna.Delay({
     delayTime: 75,    //how many milliseconds should the wet signal be delayed?
     wetLevel: 0.5,    //0 to 1+
     dryLevel: 0.25,       //0 to 1+
-    cutoff: 500,      //cutoff frequency of the built in lowpass-filter. 20 to 20050
+    cutoff: 15000,      //cutoff frequency of the built in lowpass-filter. 12 to 12050
     bypass: 0
 });
 
@@ -53,7 +53,7 @@ var delay3 = new tuna.Delay({
     delayTime: 25,    //how many milliseconds should the wet signal be delayed?
     wetLevel: 0.75,    //0 to 1+
     dryLevel: 0.5,       //0 to 1+
-    cutoff: 700,      //cutoff frequency of the built in lowpass-filter. 20 to 20050
+    cutoff: 11700,      //cutoff frequency of the built in lowpass-filter. 20 to 20050
     bypass: 0
 });
 var d3player = SamplePlayer(ac)
@@ -75,7 +75,7 @@ loadSample2Buff(ac, './d3.wav', function(buffer){
 })
 
 function random(){
-  return (Math.random() * 20) - 10
+  return (Math.random() * 12) - 10
 }
 
 var dolphin_index = 0
@@ -99,7 +99,7 @@ var i = 1
 function cycle(){
   document.querySelector('img:nth-child('+ i +')').style.opacity = 0
   // if (i > 2) document.querySelector('img:nth-child('+ (i - 1) +')').style.opacity = 0.3
-  i = ~~(Math.random() * 20) + 1
+  i = ~~(Math.random() * 11) + 1
   document.querySelector('img:nth-child('+ i +')').style.opacity = 0.95
   // if(i < 40) document.querySelector('img:nth-child('+ (i + 1) +')').style.opacity = 0.3
   window.setTimeout(function(){
@@ -112,7 +112,7 @@ var j = 10
 function doubleIt(){
   document.querySelector('img:nth-child('+ j +')').style.opacity = 0
   // if (i > 2) document.querySelector('img:nth-child('+ (i - 1) +')').style.opacity = 0.3
-  if(++j > 20) {
+  if(++j > 12) {
     document.querySelector('img:nth-child('+ j +')').style.opacity = 0
     j = 1
   }
@@ -132,7 +132,7 @@ var k = 15
 function tripleIt(){
   document.querySelector('img:nth-child('+ k +')').style.opacity = 0
   // if (i > 2) document.querySelector('img:nth-child('+ (i - 1) +')').style.opacity = 0.3
-  if(++k > 20) {
+  if(++k > 12) {
     document.querySelector('img:nth-child('+ k +')').style.opacity = 0
     k = 1
   }
@@ -145,7 +145,7 @@ function tripleIt(){
 
 window.setTimeout(function(){
   tripleIt()
-}, 20700)
+}, 12700)
 
 
 window.setTimeout(function(){
@@ -187,9 +187,9 @@ window.setInterval(function(){
     delay2.dryLevel.value = delay2.dryLevel.value * 0.85
   }
   if (decrease){
-    delay.cutoff.value = delay.cutoff.value * 0.85
-    delay3.cutoff.value = delay3.cutoff.value * 0.85
-    delay2.cutoff.value = delay2.cutoff.value * 0.85
-    g.gain.value = g.gain.value * 0.95
+    if(delay.cutoff.value > 1000) delay.cutoff.value = delay.cutoff.value * 0.85
+    if(delay3.cutoff.value > 750) delay3.cutoff.value = delay3.cutoff.value * 0.85
+    if(delay2.cutoff.value > 500) delay2.cutoff.value = delay2.cutoff.value * 0.85
+
   }
 }, 5000)

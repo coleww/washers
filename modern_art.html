@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+    WASHER TEMPLATE
+  </title>
+
+
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      background-color: black;
+    }
+
+    .headline {
+      font-size: 15px;
+    }
+
+    .super-center {
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .layover {
+      margin-left: auto;
+      margin-right: auto;
+      overflow: scroll;
+      overflow-x: auto;
+      overflow-y: auto;
+      padding: 10%;
+      padding-top: 5%;
+      padding-bottom: 5%;
+      text-align: justify;
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+      /*font-family: 'SOME GOOGLE FONT OR WHATEVER';*/
+      font-size: 19px;
+    }
+
+  </style>
+  <!-- <link href='http://fonts.googleapis.com/css?family=UPORBABLYWANTAGOOGLEFONTORSOMETHING' rel='stylesheet' type='text/css'> -->
+</head>
+<body>
+
+<!-- -->
+
+
+
+
+
+
+  <div class="super-center layover">
+    <span id="hirst">HIRST ON KOONS</span>///////////////////<span id="koons">KOONS ON HIRST</span>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script>
+    $(function(){
+      $('#hirst').click(function(){
+        $('.layover').html('  <iframe class="super-center" src="//www.youtube.com/embed/KDjaAkD5J8g?autoplay=1&controls=0&loop=1&playlist=KDjaAkD5J8g" frameborder="0" ></iframe><iframeclass="super-center" src="//www.youtube.com/embed/-W8t4Zs35io?autoplay=1&controls=0&loop=1&playlist=-W8t4Zs35io" frameborder="0" volume="0"></iframe>')
+
+      })
+      $('#koons').click(function(){
+        $('body').html('  <iframe class="super-center" src="//www.youtube.com/embed/-W8t4Zs35io?autoplay=1&controls=0&loop=1&playlist=-W8t4Zs35io" frameborder="0"></iframe><iframe  id="hirstvid" class="super-center" src="//www.youtube.com/embed/cbbVSnwKWWQ?start=68&autoplay=1&controls=0&enablejsapi=1" frameborder="0" volume="0"></iframe>')
+        var video=document.getElementById("hirstvid");
+        video.setVolume(0);
+      })
+      // DO STUFF!!!!
+    })
+  </script>
+
+</body>
+</html>

@@ -19,6 +19,6 @@ h1 {
 h3 {
   top: 250px;
   position: absolute;
-  font-size: 75px;
+  font-size: 50px;
   transition: opacity 13s ease-in-out;
 }
