@@ -1,0 +1,24 @@
+body {
+  position: relative;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+img {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 7s ease-in-out;
+}
+
+h1 {
+
+  position: absolute;
+  font-size: 150px;
+  transition: opacity 12s ease-in-out;
+}
+
+h3 {
+  top: 250px;
+  position: absolute;
+  font-size: 75px;
+  transition: opacity 13s ease-in-out;
+}
