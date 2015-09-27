@@ -1,6 +1,9 @@
 body {
   position: relative;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 img {
