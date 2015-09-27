@@ -99,7 +99,7 @@ var i = 1
 function cycle(){
   document.querySelector('img:nth-child('+ i +')').style.opacity = 0
   // if (i > 2) document.querySelector('img:nth-child('+ (i - 1) +')').style.opacity = 0.3
-  i = ~~(Math.random() * 18)
+  i = ~~(Math.random() * 20) + 1
   document.querySelector('img:nth-child('+ i +')').style.opacity = 0.95
   // if(i < 40) document.querySelector('img:nth-child('+ (i + 1) +')').style.opacity = 0.3
   window.setTimeout(function(){
@@ -112,7 +112,7 @@ var j = 10
 function doubleIt(){
   document.querySelector('img:nth-child('+ j +')').style.opacity = 0
   // if (i > 2) document.querySelector('img:nth-child('+ (i - 1) +')').style.opacity = 0.3
-  if(++j > 18) {
+  if(++j > 20) {
     document.querySelector('img:nth-child('+ j +')').style.opacity = 0
     j = 1
   }
@@ -132,7 +132,7 @@ var k = 15
 function tripleIt(){
   document.querySelector('img:nth-child('+ k +')').style.opacity = 0
   // if (i > 2) document.querySelector('img:nth-child('+ (i - 1) +')').style.opacity = 0.3
-  if(++k > 18) {
+  if(++k > 20) {
     document.querySelector('img:nth-child('+ k +')').style.opacity = 0
     k = 1
   }
